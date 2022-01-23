@@ -10,6 +10,7 @@ import {SpeakersService} from '../../shared/services/speakers.service';
 })
 export class SpeakersPageComponent implements OnInit {
     public speakers: SpeakerModel[] = [];
+    public searchResults: SpeakerModel[] = [];
     public isFetching: boolean;
 
     constructor(private http: HttpClient, private speakersService: SpeakersService) {
@@ -27,4 +28,8 @@ export class SpeakersPageComponent implements OnInit {
         });
     }
 
+    updateResults(newItem: SpeakerModel[]) {
+        this.searchResults = newItem;
+        console.log(this.searchResults)
+    }
 }

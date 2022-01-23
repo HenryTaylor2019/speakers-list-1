@@ -1,5 +1,16 @@
-<ul *ngFor="let term of speakers">
-    <li>{{term.name.first}} {{term.name.last}}</li>
-    <p>{{term.email}}</p>
-    <img src="{{term.picture.large}}" alt="">
-</ul>
+<app-search-bar [speakers]="speakers" (searchDataEvent)="updateResults($event)"></app-search-bar>
+
+<div *ngIf="isFetching">
+    <p>loading...</p>
+</div>
+<div *ngIf="searchResults.length === 0">
+    <p>Please try again</p>
+</div>
+<div *ngIf="!isFetching">
+    <ul *ngFor="let term of searchResults">
+        <li>{{term.name.first}} {{term.name.last}}</li>
+        <p>{{term.email}}</p>
+        <img src="{{term.picture.large}}" alt="">
+    </ul>
+</div>
+
