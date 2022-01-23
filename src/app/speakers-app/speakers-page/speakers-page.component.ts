@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {SpeakerModel} from '../../shared/models/speaker.model';
 import {HttpClient} from '@angular/common/http';
-import {SpeakersService} from '../../shared/services/speakers.service';
+import {SpeakerModel} from '../shared/models/speaker.model';
+import {SpeakersService} from '../shared/services/speakers.service';
 
 @Component({
     selector: 'app-speakers-page',
