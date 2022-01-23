@@ -1,4 +1,21 @@
-<app-search-bar [speakers]="speakers" (searchDataEvent)="updateResults($event)"></app-search-bar>
+<div class="container">
+    <div class="container__header">
+
+    </div>
+
+    <div class="container__body">
+        <div class="container__body__search-bar">
+            <app-search-bar [speakers]="speakers" (searchDataEvent)="updateResults($event)"></app-search-bar>
+        </div>
+
+        <div class="container__body__results">
+
+        </div>
+    </div>
+</div>
+
+
+
 
 <div *ngIf="isFetching">
     <p>loading...</p>

@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {SpeakerModel} from "../../models/speaker.model";
+import {SpeakerModel} from "../../../../shared/models/speaker.model";
 
 @Component({
     selector: 'app-search-bar',

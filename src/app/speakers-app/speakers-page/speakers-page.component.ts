@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {SpeakerModel} from '../shared/models/speaker.model';
-import {SpeakersService} from '../shared/services/speakers.service';
+import {SpeakerModel} from '../../shared/models/speaker.model';
+import {SpeakersService} from '../../shared/services/speakers.service';
+
 
 @Component({
     selector: 'app-speakers-page',
@@ -28,7 +29,7 @@ export class SpeakersPageComponent implements OnInit {
         });
     }
 
-    updateResults(newItem: SpeakerModel[]) {
+    updateResults(newItem: SpeakerModel[]): void {
         this.searchResults = newItem;
         console.log(this.searchResults)
     }
