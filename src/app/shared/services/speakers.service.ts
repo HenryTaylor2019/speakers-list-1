@@ -10,16 +10,16 @@ export class SpeakersService {
     constructor(private http: HttpClient) {
     }
 
-    getData() {
+    onGetSpeakerData() {
         return this.http.get<{ [key: string]: SpeakerModel }>(this.endpoint)
             .pipe(map(responseData => {
-                        const postsArray = [];
+                        const speakersArray = [];
                         for (const key in responseData) {
                             if (responseData.hasOwnProperty(key)) {
-                                postsArray.push(responseData[key]);
+                                speakersArray.push(responseData[key]);
                             }
                         }
-                        return postsArray;
+                        return speakersArray;
                     }
                 )
             );
