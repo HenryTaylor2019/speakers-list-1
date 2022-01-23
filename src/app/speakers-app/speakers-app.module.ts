@@ -6,19 +6,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from '../app-routing.module';
 import {CommonModule} from '@angular/common';
 import {NavBarComponent} from './shared/components/nav-bar/nav-bar.component';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {MatToolbar} from "@angular/material/toolbar";
-import {MatButtonModule} from "@angular/material/button";
-import {MatProgressBarModule} from "@angular/material/progress-bar";
-import {MatDialogModule} from "@angular/material/dialog";
 import {MatCardModule} from "@angular/material/card";
-import {MatListModule} from "@angular/material/list";
-import {MatInputModule} from "@angular/material/input";
-import {MatStepperModule} from "@angular/material/stepper";
+import {MatFormFieldModule} from "@angular/material/form-field";
 import {ReactiveFormsModule} from "@angular/forms";
-import {MatChipsModule} from "@angular/material/chips";
-import {MatMenuModule} from "@angular/material/menu";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
 
 export const ROUTES: Routes = [
     {
@@ -37,18 +29,11 @@ export const ROUTES: Routes = [
         BrowserModule,
         AppRoutingModule,
         CommonModule,
-        MatInputModule,
-        MatButtonModule,
-        MatDialogModule,
         MatCardModule,
-        MatProgressBarModule,
-        CommonModule,
-        MatStepperModule,
-        MatChipsModule,
+        MatFormFieldModule,
         ReactiveFormsModule,
-        MatListModule,
-        MatMenuModule,
-        BrowserAnimationsModule
+        MatInputModule,
+        MatButtonModule
     ],
     declarations: [HomeComponent, NavBarComponent],
     exports: [RouterModule, AppRoutingModule, NavBarComponent]

@@ -3,6 +3,10 @@ import {HttpClient} from '@angular/common/http';
 import {SpeakerModel} from '../../shared/models/speaker.model';
 import {SpeakersService} from '../../shared/services/speakers.service';
 
+// TO DO
+// 1. Decide whether all speakers are displayed or whether it should be toggled
+// 2. Design
+
 
 @Component({
     selector: 'app-speakers-page',
@@ -26,11 +30,12 @@ export class SpeakersPageComponent implements OnInit {
         this.speakersService.onGetSpeakerData().subscribe(speakersData => {
             this.isFetching = false;
             this.speakers = speakersData[0];
+            console.log(this.speakers)
         });
     }
 
     updateResults(newItem: SpeakerModel[]): void {
         this.searchResults = newItem;
-        console.log(this.searchResults)
+        console.log(this.searchResults);
     }
 }

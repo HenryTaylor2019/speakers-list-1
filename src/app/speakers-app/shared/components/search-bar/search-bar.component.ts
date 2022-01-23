@@ -1,5 +1,12 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {SpeakerModel} from "../../../../shared/models/speaker.model";
+import {SpeakerModel} from '../../../../shared/models/speaker.model';
+
+
+// TO DO
+// 1. Have search term appear below input after enter
+// 2. Have a filter by country dropdown
+// 3. Show all speakers toggle
+
 
 @Component({
     selector: 'app-search-bar',

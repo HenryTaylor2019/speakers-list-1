@@ -1,2 +1,10 @@
-<label for="search">Search Speakers: </label>
-<input type="search" id="search" (search)="searchSpeakers($event)">
+<div class="container">
+
+</div>
+
+
+
+<mat-form-field appearance="fill">
+    <mat-label>Search Speakers</mat-label>
+    <input matInput (change)="searchSpeakers($event)">
+</mat-form-field>

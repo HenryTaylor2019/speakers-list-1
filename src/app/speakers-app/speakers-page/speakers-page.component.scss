@@ -1,14 +1,41 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
 .container{
-    padding: 0 3em;
+    padding: 2em 3em;
 
     &__header{
+        background: bisque;
+        padding: 2em;
+
+        &__search-bar {
+
+        }
+
+        &__messages {
+
+        }
 
     }
 
     &__body {
+        display: flex;
+        justify-content: space-between;
+        padding: 2em 0;
 
-        &__search-bar {
 
+        &__results {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+            width: 30%;
+        }
+
+        &__speakers {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+            width: 30%;
         }
     }
 }
