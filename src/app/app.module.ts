@@ -6,6 +6,7 @@ import {AppComponent} from './app.component';
 import {SpeakersPageComponent} from './speakers-app/speakers-page/speakers-page.component';
 import {HttpClientModule} from '@angular/common/http';
 import {SearchBarComponent} from './speakers-app/shared/components/search-bar/search-bar.component';
+import {SpeakersAppModule} from './speakers-app/speakers-app.module';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,8 @@ import {SearchBarComponent} from './speakers-app/shared/components/search-bar/se
     imports: [
         BrowserModule,
         AppRoutingModule,
-        HttpClientModule
+        HttpClientModule,
+        SpeakersAppModule
     ],
     providers: [],
     bootstrap: [AppComponent]
