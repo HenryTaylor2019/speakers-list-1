@@ -1,8 +1,8 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "src/styles";
 
 .container{
     margin: 2em 20%;
-    background: #E0BE36;
+    background: $cambridgeBlue;
     border-radius: 5px 5px 5px 5px;
 
     &__header{
@@ -13,48 +13,50 @@
 
         &__search-bar {
 
-            &--label {
+            &--search-label {
                 font-size: 25px;
+                font-family: "Futura";
+            }
+
+            &--select-label {
+                font-size: 18px;
                 font-family: "Futura";
             }
         }
 
-        &__messages {
+        &__btn-container {
+            padding-top: 1em;
 
+            &--btn {
+                background: $jet;
+            }
+        }
+
+        &__messages {
+            padding-top: 1em;
         }
     }
 
     &__body {
-        display: flex;
         justify-content: stretch;
         gap: 0.5em;
-        padding: 2em 0;
+        padding: 1em 0;
         border-radius: 0 0 5px 5px;
 
         &__results {
             display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
             flex-wrap: wrap;
+            padding: 0 1em;
             gap: 0.5em;
 
             &__card {
-                margin: 0 auto;
-                width: 80%;
-                overflow: auto;
+                background: $mintCream;
+                width: 100%;
 
                 &--title {
-                    width: 80%;
                     overflow-wrap: break-word;
                 }
             }
-        }
-
-        &__speakers {
-            display: flex;
-            flex-direction: column;
-            justify-content: stretch;
-            gap: 0.5em;
         }
     }
 }

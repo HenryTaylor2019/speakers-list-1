@@ -1,15 +1,6 @@
 <div class="container">
-    <mat-form-field appearance="fill" class="container__search-bar">
-        <input class="container__search-bar--search" matInput (change)="searchSpeakers($event)">
-    </mat-form-field>
-
     <mat-form-field appearance="fill">
-        <mat-label>Filter by Country</mat-label>
-        <mat-select >
-            <mat-option class="container__select" *ngFor="let speaker of speakers" [value]="speaker.location.country" >
-                {{speaker.location.country}}
-            </mat-option >
-        </mat-select>
+        <input class="container__input" matInput (change)="submitSearch($event)">
     </mat-form-field>
 </div>
 

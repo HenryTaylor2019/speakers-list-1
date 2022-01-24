@@ -1,36 +1,33 @@
 <div class="container">
     <div class="container__header">
         <div class="container__header__search-bar">
-            <p class="container__header__search-bar--label">Search Speakers</p>
-            <app-search-bar [speakers]="speakers" (searchDataEvent)="updateResults($event)"></app-search-bar>
-<!--            <div class="container__header__search-bar__messages">-->
-<!--                <p *ngIf="isFetching">loading...</p>-->
-<!--                <p *ngIf="searchResults.length === 0">Please try again</p>-->
-<!--            </div>-->
-        </div>
+            <p class="container__header__search-bar--search-label">Search Speakers</p>
+            <app-search-bar [speakers]="speakers" (searchDataEvent)="filterBySearch($event)"></app-search-bar>
+            <p class="container__header__search-bar--select-label">Filter by Country</p>
 
+            <!--     Fix Country list!        -->
+            <app-select-bar [speakers]="speakers" (filterCountryEvent)="filterByCountry($event)"></app-select-bar>
+        </div>
+        <div class="container__header__btn-container">
+            <button class="container__header__btn-container--btn" mat-raised-button color="warn" (click)="showAllSpeakers()">Show All Speakers</button>
+        </div>
+        <div class="container__header__messages">
+            <p *ngIf="isFetching">loading...</p>
+            <p *ngIf="searchFailed">No speakers matching that name. Please try again</p>
+        </div>
     </div>
 
     <div class="container__body">
         <div class="container__body__results">
             <mat-card class="container__body__results__card" *ngFor="let speaker of searchResults">
                 <mat-card-title-group>
-                        <mat-card-title class="container__body__results__card--title">{{speaker.name.title}} {{speaker.name.first}} {{speaker.name.last}}</mat-card-title>
+                    <mat-card-title
+                        class="container__body__results__card--title">{{speaker.name.title}} {{speaker.name.first}} {{speaker.name.last}}</mat-card-title>
                     <mat-card-subtitle>{{speaker.location.country}}</mat-card-subtitle>
-                    <img mat-card-sm-image src="{{speaker.picture.medium}}" >
+                    <img mat-card-sm-image src="{{speaker.picture.medium}}">
                 </mat-card-title-group>
             </mat-card>
         </div>
-
-<!--        <div class="container__body__speakers" *ngIf="speakers.length">-->
-<!--            <mat-card *ngFor="let speaker of speakers">-->
-<!--                <mat-card-title-group>-->
-<!--                    <mat-card-title>{{speaker.name.title}} {{speaker.name.first}} {{speaker.name.last}}</mat-card-title>-->
-<!--                    <mat-card-subtitle>{{speaker.location.country}}</mat-card-subtitle>-->
-<!--                    <img mat-card-sm-image src="{{speaker.picture.medium}}" >-->
-<!--                </mat-card-title-group>-->
-<!--            </mat-card>-->
-<!--        </div>-->
     </div>
 </div>
 

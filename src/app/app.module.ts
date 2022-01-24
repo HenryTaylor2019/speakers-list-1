@@ -9,11 +9,11 @@ import {SearchBarComponent} from './speakers-app/shared/components/search-bar/se
 import {SpeakersAppModule} from './speakers-app/speakers-app.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatButtonModule} from "@angular/material/button";
-import {MatSelectModule} from "@angular/material/select";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -21,7 +21,7 @@ import {MatSelectModule} from "@angular/material/select";
     declarations: [
         AppComponent,
         SpeakersPageComponent,
-        SearchBarComponent
+        SearchBarComponent,
     ],
     imports: [
         BrowserModule,
@@ -34,7 +34,8 @@ import {MatSelectModule} from "@angular/material/select";
         ReactiveFormsModule,
         MatInputModule,
         MatButtonModule,
-        MatSelectModule
+        MatSelectModule,
+        FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
