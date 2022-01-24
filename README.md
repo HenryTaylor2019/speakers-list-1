@@ -27,4 +27,5 @@ Things I would like to do/add:
 2. Add a modal popup with information for each speaker
 3. Implement NgRx 
 4. Take some time to understand unit testing
+5. Started the task in Angular 12 as the brief suggested and not 10.. 
 
