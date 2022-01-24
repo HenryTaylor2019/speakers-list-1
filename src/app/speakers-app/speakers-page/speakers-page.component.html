@@ -4,8 +4,6 @@
             <p class="container__header__search-bar--search-label">Search Speakers</p>
             <app-search-bar [speakers]="speakers" (searchDataEvent)="filterBySearch($event)"></app-search-bar>
             <p class="container__header__search-bar--select-label">Filter by Country</p>
-
-            <!--     Fix Country list!        -->
             <app-select-bar [speakers]="speakers" (filterCountryEvent)="filterByCountry($event)"></app-select-bar>
         </div>
         <div class="container__header__btn-container">
@@ -16,7 +14,6 @@
             <p *ngIf="searchFailed">No speakers matching that name. Please try again</p>
         </div>
     </div>
-
     <div class="container__body">
         <div class="container__body__results">
             <mat-card class="container__body__results__card" *ngFor="let speaker of searchResults">

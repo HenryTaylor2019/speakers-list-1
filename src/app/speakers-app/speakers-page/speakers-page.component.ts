@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {SpeakerModel} from '../../../shared/models/speaker.model';
 import {SpeakersService} from '../../../shared/services/speakers.service';
+import {async} from "rxjs/internal/scheduler/async";
 
 @Component({
     selector: 'app-speakers-page',
@@ -11,11 +12,11 @@ import {SpeakersService} from '../../../shared/services/speakers.service';
 export class SpeakersPageComponent implements OnInit {
     public speakers: SpeakerModel[] = [];
     public searchResults: SpeakerModel[] = [];
+    public speakerCountries = [];
     public isFetching: boolean;
     public searchFailed = false;
 
-    constructor(private http: HttpClient, private speakersService: SpeakersService) {
-    }
+    constructor(private http: HttpClient, private speakersService: SpeakersService) {}
 
     ngOnInit(): void {
         this.onGetSpeakerData();
@@ -27,8 +28,12 @@ export class SpeakersPageComponent implements OnInit {
             this.isFetching = false;
             this.speakers = speakersData[0];
             this.searchResults = speakersData[0];
+            this.searchResults.map(searchResult => {
+                this.speakerCountries.push(searchResult.location.country)
+            });
         });
     }
+
 
     showAllSpeakers(): void {
         this.searchResults = this.speakers;

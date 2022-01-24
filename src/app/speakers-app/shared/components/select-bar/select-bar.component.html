@@ -1,7 +1,7 @@
 <mat-form-field appearance="fill">
-    <mat-select>
-        <mat-option class="container__select" *ngFor="let speaker of speakers" [value]="speaker.location.country" (click)="submitCountry(speaker.location.country)">
-            {{speaker.location.country}}
-        </mat-option >
+    <mat-select *ngIf="speakers">
+        <mat-option class="container__select" *ngFor="let country of speakersCountries" [value]="country" (click)="submitCountry(country)" >
+            {{country}}
+        </mat-option>
     </mat-select>
 </mat-form-field>

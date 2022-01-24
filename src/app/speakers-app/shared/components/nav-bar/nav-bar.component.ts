@@ -11,12 +11,12 @@ export class NavBarComponent {
     public routes = {
         home: '',
         speakers: '/speakers'
-    }
+    };
 
     constructor(private router: Router) {
     }
 
-    toggleNav() {
+    toggleNav(): void {
         this.router.url === this.routes.home ? this.onHomePage = this.onHomePage : this.onHomePage = !this.onHomePage;
     }
 }
