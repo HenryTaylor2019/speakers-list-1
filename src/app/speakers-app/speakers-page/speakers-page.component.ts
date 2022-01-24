@@ -1,12 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {SpeakerModel} from '../../shared/models/speaker.model';
-import {SpeakersService} from '../../shared/services/speakers.service';
-
-// TO DO
-// 1. Decide whether all speakers are displayed or whether it should be toggled
-// 2. Design
-
+import {SpeakerModel} from '../../../shared/models/speaker.model';
+import {SpeakersService} from '../../../shared/services/speakers.service';
 
 @Component({
     selector: 'app-speakers-page',
@@ -17,13 +12,13 @@ export class SpeakersPageComponent implements OnInit {
     public speakers: SpeakerModel[] = [];
     public searchResults: SpeakerModel[] = [];
     public isFetching: boolean;
+    public searchFailed = false;
 
     constructor(private http: HttpClient, private speakersService: SpeakersService) {
     }
 
     ngOnInit(): void {
         this.onGetSpeakerData();
-        this.searchResults = this.speakers;
     }
 
     onGetSpeakerData(): void {
@@ -31,12 +26,32 @@ export class SpeakersPageComponent implements OnInit {
         this.speakersService.onGetSpeakerData().subscribe(speakersData => {
             this.isFetching = false;
             this.speakers = speakersData[0];
-            // console.log(this.speakers)
+            this.searchResults = speakersData[0];
         });
     }
 
-    updateResults(filteredSpeakers: SpeakerModel[]): void {
-            this.searchResults = filteredSpeakers;
-            console.log(this.searchResults)
+    showAllSpeakers(): void {
+        this.searchResults = this.speakers;
+        this.searchFailed = false;
+    }
+
+    filterByCountry(selectedCountry): void {
+        this.searchResults = this.speakers.filter(speaker => {
+            return speaker.location.country === selectedCountry;
+        });
+        this.searchFailed = false;
+    }
+
+    filterBySearch(eventData): void {
+        let searchText = eventData.target.value;
+        if (searchText.length < 1) {
+            this.searchResults = [];
+        } else {
+            searchText = searchText.toLocaleLowerCase();
+            this.searchResults = this.speakers.filter(speaker => {
+                return speaker.name.first.toLocaleLowerCase().includes(searchText) || speaker.name.last.toLocaleLowerCase().includes(searchText);
+            });
+        }
+        this.searchResults.length < 1 ? this.searchFailed = true : this.searchFailed = false;
     }
 }

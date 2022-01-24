@@ -1,9 +1,7 @@
-.container {
+@import "src/styles";
 
-    &__header {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+.container {
+    background-image: url("~src/assets/images/crowd.jpg");
+    background-size: cover;
+    min-height: 88vh;
 }

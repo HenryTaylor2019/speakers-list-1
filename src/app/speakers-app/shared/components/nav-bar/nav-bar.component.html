@@ -1,6 +1,6 @@
 <div class="container">
     <div class="container__nav">
-        <button mat-button href="" routerLink="">Home</button>
-        <button mat-button href="" routerLink="/speakers">Speakers</button>
+        <button *ngIf="!onHomePage" class="container__nav--btn" (click)="toggleNav()" mat-raised-button color="warn" routerLink="{{routes.home}}">Home</button>
+        <button *ngIf="onHomePage" class="container__nav--btn" (click)="toggleNav()" mat-raised-button color="warn" routerLink="{{routes.speakers}}">Speakers</button>
     </div>
 </div>

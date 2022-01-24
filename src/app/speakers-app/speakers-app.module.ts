@@ -11,6 +11,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
+import { SelectBarComponent } from './shared/components/select-bar/select-bar.component';
+import {MatSelectModule} from "@angular/material/select";
 
 export const ROUTES: Routes = [
     {
@@ -33,10 +35,11 @@ export const ROUTES: Routes = [
         MatFormFieldModule,
         ReactiveFormsModule,
         MatInputModule,
-        MatButtonModule
+        MatButtonModule,
+        MatSelectModule
     ],
-    declarations: [HomeComponent, NavBarComponent],
-    exports: [RouterModule, AppRoutingModule, NavBarComponent]
+    declarations: [HomeComponent, NavBarComponent, SelectBarComponent],
+    exports: [RouterModule, AppRoutingModule, NavBarComponent, SelectBarComponent]
 })
 
 export class SpeakersAppModule {

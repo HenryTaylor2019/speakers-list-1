@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
-  selector: 'app-nav-bar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+    selector: 'app-nav-bar',
+    templateUrl: './nav-bar.component.html',
+    styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent {
+    public onHomePage = true;
+    public routes = {
+        home: '',
+        speakers: '/speakers'
+    }
 
-  constructor() { }
+    constructor(private router: Router) {
+    }
 
-  ngOnInit(): void {
-  }
-
+    toggleNav() {
+        this.router.url === this.routes.home ? this.onHomePage = this.onHomePage : this.onHomePage = !this.onHomePage;
+    }
 }
