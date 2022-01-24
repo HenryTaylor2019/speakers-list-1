@@ -23,6 +23,7 @@ export class SpeakersPageComponent implements OnInit {
 
     ngOnInit(): void {
         this.onGetSpeakerData();
+        this.searchResults = this.speakers;
     }
 
     onGetSpeakerData(): void {
@@ -30,12 +31,12 @@ export class SpeakersPageComponent implements OnInit {
         this.speakersService.onGetSpeakerData().subscribe(speakersData => {
             this.isFetching = false;
             this.speakers = speakersData[0];
-            console.log(this.speakers)
+            // console.log(this.speakers)
         });
     }
 
-    updateResults(newItem: SpeakerModel[]): void {
-        this.searchResults = newItem;
-        console.log(this.searchResults);
+    updateResults(filteredSpeakers: SpeakerModel[]): void {
+            this.searchResults = filteredSpeakers;
+            console.log(this.searchResults)
     }
 }

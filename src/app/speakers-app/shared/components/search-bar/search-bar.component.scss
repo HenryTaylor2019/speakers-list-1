@@ -2,4 +2,18 @@
 
 .container {
     display: flex;
+    flex-direction: column;
+    padding-top: 1em;
+
+    &__search-bar {
+        //width: 20em;
+
+        &--search {
+            //font-size: 20px;
+        }
+    }
+
+    &--select {
+        font-size: 20px !important;
+    }
 }

@@ -16,6 +16,7 @@ import {SpeakerModel} from '../../../../shared/models/speaker.model';
 export class SearchBarComponent implements OnInit {
     @Input() public speakers: SpeakerModel[] = [];
     @Output() public searchDataEvent = new EventEmitter();
+    @Output() public filterCountryEvent = new EventEmitter();
 
     constructor() {
     }
@@ -26,9 +27,20 @@ export class SearchBarComponent implements OnInit {
 
     searchSpeakers(searchTerm): void {
         const value = searchTerm.target.value;
-        const matchingResults = this.speakers.filter(val => {
-            return val.name.first.includes(value) || val.name.last.includes(value);
+        const matchingSpeakers = this.speakers.filter(speaker => {
+            return speaker.name.first.includes(value) || speaker.name.last.includes(value);
         });
-        this.searchDataEvent.emit(matchingResults);
+        this.searchDataEvent.emit(matchingSpeakers);
     }
+
+    // filterCountry(option): void {
+    //     const value = option;
+    //     const matchingSpeakers = this.speakers.filter(speaker => {
+    //         return speaker.location.country.includes(value);
+    //     });
+    //     matchingSpeakers.splice(matchingSpeakers.length, -1);
+    //     console.log(matchingSpeakers)
+    //     this.filterCountryEvent.emit(matchingSpeakers);
+    //     // console.log(option)
+    // }
 }
