@@ -6,13 +6,13 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from '../app-routing.module';
 import {CommonModule} from '@angular/common';
 import {NavBarComponent} from './shared/components/nav-bar/nav-bar.component';
-import {MatCardModule} from "@angular/material/card";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {ReactiveFormsModule} from "@angular/forms";
-import {MatInputModule} from "@angular/material/input";
-import {MatButtonModule} from "@angular/material/button";
-import { SelectBarComponent } from './shared/components/select-bar/select-bar.component';
-import {MatSelectModule} from "@angular/material/select";
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {SelectBarComponent} from './shared/components/select-bar/select-bar.component';
+import {MatSelectModule} from '@angular/material/select';
 
 export const ROUTES: Routes = [
     {

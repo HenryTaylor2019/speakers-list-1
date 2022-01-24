@@ -1,11 +1,15 @@
 @import "src/styles";
 
-.container{
-    margin: 2em 20%;
+.container {
+    margin: 2em 10%;
     background: $cambridgeBlue;
     border-radius: 5px 5px 5px 5px;
 
-    &__header{
+    @media (max-width: $tablet) {
+        margin: 1em 0;
+    }
+
+    &__header {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -34,29 +38,62 @@
 
         &__messages {
             padding-top: 1em;
+
+            &--search-term {
+                font-weight: bold;
+            }
+
+            &--instructions {
+                padding-top: 1em;
+                font-size: 25px;
+                font-family: "Futura";
+            }
         }
     }
 
     &__body {
-        justify-content: stretch;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
         gap: 0.5em;
         padding: 1em 0;
         border-radius: 0 0 5px 5px;
 
-        &__results {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 0 1em;
-            gap: 0.5em;
+        @media (max-width: $tablet) {
+            flex-direction: column;
+        }
 
-            &__card {
-                background: $mintCream;
-                width: 100%;
+        &__list {
+            flex: 2;
 
-                &--title {
-                    overflow-wrap: break-word;
+            &--title {
+                font-family: "Futura";
+                font-size: 20px;
+                padding-left: 2em;
+            }
+
+            &__results {
+                display: flex;
+                justify-content: space-evenly;
+                flex-wrap: wrap;
+                height: auto;
+                padding: 2em;
+                gap: 0.5em;
+
+                &__card {
+                    background: $mintCream;
+                    width: 100%;
+                    cursor: pointer;
+
+                    &--title {
+                        overflow-wrap: break-word;
+                    }
                 }
             }
         }
     }
 }
+
+

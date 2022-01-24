@@ -7,23 +7,47 @@
             <app-select-bar [speakers]="speakers" (filterCountryEvent)="filterByCountry($event)"></app-select-bar>
         </div>
         <div class="container__header__btn-container">
-            <button class="container__header__btn-container--btn" mat-raised-button color="warn" (click)="showAllSpeakers()">Show All Speakers</button>
+            <button class="container__header__btn-container--btn" mat-raised-button color="warn"
+                    (click)="showAllSpeakers()">Show All Speakers
+            </button>
         </div>
         <div class="container__header__messages">
-            <p *ngIf="isFetching">loading...</p>
-            <p *ngIf="searchFailed">No speakers matching that name. Please try again</p>
+            <h3 *ngIf="isFetching">loading...</h3>
+            <h3 *ngIf="searchFailed">No speakers matching <span
+                class="container__header__messages--search-term">{{searchText}}</span>. Please try again</h3>
+            <h3 *ngIf="!searchFailed && searchSubmitted">Showing results for <span
+                class="container__header__messages--search-term">{{searchText}}</span></h3>
+            <h3 class="container__header__messages--instructions">Select a speaker to add them to your program</h3>
         </div>
     </div>
     <div class="container__body">
-        <div class="container__body__results">
-            <mat-card class="container__body__results__card" *ngFor="let speaker of searchResults">
-                <mat-card-title-group>
-                    <mat-card-title
-                        class="container__body__results__card--title">{{speaker.name.title}} {{speaker.name.first}} {{speaker.name.last}}</mat-card-title>
-                    <mat-card-subtitle>{{speaker.location.country}}</mat-card-subtitle>
-                    <img mat-card-sm-image src="{{speaker.picture.medium}}">
-                </mat-card-title-group>
-            </mat-card>
+        <div class="container__body__list" *ngIf="searchResults.length > 0">
+            <h4 class="container__body__list--title">Speakers</h4>
+            <div class="container__body__list__results">
+                <mat-card class="container__body__list__results__card" *ngFor="let speaker of searchResults"
+                          (click)="moveSpeakerToSelected(speaker.name.first)" matTooltip="Info about the action"
+                          aria-label="Button that displays a tooltip when focused or hovered over">
+                    <mat-card-title-group>
+                        <mat-card-title
+                            class="container__body__list__results__card--title">{{speaker.name.first}} {{speaker.name.last}}</mat-card-title>
+                        <mat-card-subtitle>{{speaker.location.country}}</mat-card-subtitle>
+                        <img mat-card-sm-image src="{{speaker.picture.medium}}">
+                    </mat-card-title-group>
+                </mat-card>
+            </div>
+        </div>
+        <div class="container__body__list" *ngIf="selectedSpeakers.length > 0">
+            <h4 class="container__body__list--title">Your Program</h4>
+            <div class="container__body__list__results">
+                <mat-card class="container__body__list__results__card" *ngFor="let speaker of selectedSpeakers">
+                    <mat-card-title-group>
+                        <mat-card-title
+                            class="container__body__list__results__card--title">{{speaker.name.first}} {{speaker.name.last}}</mat-card-title>
+                        <mat-card-subtitle>{{speaker.location.country}}</mat-card-subtitle>
+                        <img mat-card-sm-image src="{{speaker.picture.medium}}">
+                    </mat-card-title-group>
+                </mat-card>
+            </div>
         </div>
     </div>
 </div>
