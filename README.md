@@ -24,8 +24,9 @@ User can add speakers to their program list.
 
 Things I would like to do/add:
 1. Lift out the speaker cards and the program list from the speaker-display and create their own components for them
-2. Add a modal popup with information for each speaker
-3. Implement NgRx 
-4. Take some time to understand unit testing
-5. Started the task in Angular 12 as the brief suggested and not 10.. 
+2. Allowed for removal of card from program list 
+3. Add a modal popup with information for each speaker
+4. Implement NgRx 
+5. Take some time to understand unit testing
+6. Started the task in Angular 12 as the brief suggested and not 10.. 
 
