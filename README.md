@@ -14,14 +14,15 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Walkthrough
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Basic Landing page with link through to Speakers page. 
+Speakers page initally displays all speakers and offers the option to filter by search, country or select all speakers. 
+User can add speakers to their program list.
 
-## Running end-to-end tests
+## Stretch Goals
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Things I would like to do/add:
+1. Lift out the speaker cards and the program list from the speaker-display and create their own components for them
+2. Add a modal popup with information for each speaker
+3. Implement redux 
