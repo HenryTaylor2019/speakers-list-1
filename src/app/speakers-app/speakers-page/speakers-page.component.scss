@@ -1,41 +1,60 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-
 .container{
-    padding: 2em 3em;
+    margin: 2em 20%;
+    background: #E0BE36;
+    border-radius: 5px 5px 5px 5px;
 
     &__header{
-        background: bisque;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         padding: 2em;
 
         &__search-bar {
 
+            &--label {
+                font-size: 25px;
+                font-family: "Futura";
+            }
         }
 
         &__messages {
 
         }
-
     }
 
     &__body {
         display: flex;
-        justify-content: space-between;
+        justify-content: stretch;
+        gap: 0.5em;
         padding: 2em 0;
-
+        border-radius: 0 0 5px 5px;
 
         &__results {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
             gap: 0.5em;
-            width: 30%;
+
+            &__card {
+                margin: 0 auto;
+                width: 80%;
+                overflow: auto;
+
+                &--title {
+                    width: 80%;
+                    overflow-wrap: break-word;
+                }
+            }
         }
 
         &__speakers {
             display: flex;
             flex-direction: column;
+            justify-content: stretch;
             gap: 0.5em;
-            width: 30%;
         }
     }
 }

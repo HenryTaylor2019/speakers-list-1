@@ -13,6 +13,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatButtonModule} from "@angular/material/button";
+import {MatSelectModule} from "@angular/material/select";
 
 
 
@@ -32,7 +33,8 @@ import {MatButtonModule} from "@angular/material/button";
         MatFormFieldModule,
         ReactiveFormsModule,
         MatInputModule,
-        MatButtonModule
+        MatButtonModule,
+        MatSelectModule
     ],
     providers: [],
     bootstrap: [AppComponent]
