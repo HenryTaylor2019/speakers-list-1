@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {SpeakerModel} from '../../../shared/models/speaker.model';
 import {SpeakersService} from '../../../shared/services/speakers.service';
-import {async} from "rxjs/internal/scheduler/async";
 
 @Component({
     selector: 'app-speakers-page',
@@ -14,9 +13,13 @@ export class SpeakersPageComponent implements OnInit {
     public searchResults: SpeakerModel[] = [];
     public speakerCountries = [];
     public isFetching: boolean;
+    public searchText: string;
     public searchFailed = false;
+    public searchSubmitted = false;
+    public selectedSpeakers = [];
 
-    constructor(private http: HttpClient, private speakersService: SpeakersService) {}
+    constructor(private http: HttpClient, private speakersService: SpeakersService) {
+    }
 
     ngOnInit(): void {
         this.onGetSpeakerData();
@@ -34,10 +37,20 @@ export class SpeakersPageComponent implements OnInit {
         });
     }
 
+    moveSpeakerToSelected(name): void {
+        this.searchResults.map((speaker, i) => {
+            if (speaker.name.first === name) {
+                this.searchResults.splice(i, 1);
+                this.speakers.splice(i, 1);
+                this.selectedSpeakers.push(speaker);
+            }
+        });
+    }
 
     showAllSpeakers(): void {
         this.searchResults = this.speakers;
         this.searchFailed = false;
+        this.searchSubmitted = false;
     }
 
     filterByCountry(selectedCountry): void {
@@ -45,18 +58,20 @@ export class SpeakersPageComponent implements OnInit {
             return speaker.location.country === selectedCountry;
         });
         this.searchFailed = false;
+        this.searchSubmitted = false;
     }
 
     filterBySearch(eventData): void {
-        let searchText = eventData.target.value;
-        if (searchText.length < 1) {
+        this.searchText = eventData.target.value;
+        if (this.searchText.length < 1) {
             this.searchResults = [];
         } else {
-            searchText = searchText.toLocaleLowerCase();
+            this.searchText = this.searchText.toLocaleLowerCase();
             this.searchResults = this.speakers.filter(speaker => {
-                return speaker.name.first.toLocaleLowerCase().includes(searchText) || speaker.name.last.toLocaleLowerCase().includes(searchText);
+                return speaker.name.first.toLocaleLowerCase().includes(this.searchText) || speaker.name.last.toLocaleLowerCase().includes(this.searchText);
             });
         }
         this.searchResults.length < 1 ? this.searchFailed = true : this.searchFailed = false;
+        this.searchSubmitted = true;
     }
 }

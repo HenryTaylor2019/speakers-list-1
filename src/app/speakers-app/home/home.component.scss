@@ -3,5 +3,14 @@
 .container {
     background-image: url("~src/assets/images/crowd.jpg");
     background-size: cover;
-    min-height: 88vh;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__body {
+        width: 50em;
+        height: 50em;
+        background: #92BFB1;
+    }
 }
