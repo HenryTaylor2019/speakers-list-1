@@ -13,11 +13,13 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
+---
+permalink: /index.html
+---
 ## Walkthrough
 
 Basic Landing page with link through to Speakers page. 
-Speakers page initally displays all speakers and offers the option to filter by search, country or select all speakers. 
+Speakers page initially displays all speakers and offers the option to filter by search, country or select all speakers. 
 User can add speakers to their program list.
 
 ## Stretch Goals
